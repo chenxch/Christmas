@@ -1,17 +1,43 @@
 <script setup lang="ts">
+import { onMounted, ref } from 'vue'
 import HelloWorld from './components/HelloWorld.vue'
+import Sakana from 'sakana'
+const play = ref(false)
+const audioRef = ref<HTMLAudioElement | null>(null)
+onMounted(() => {
+  Sakana.init({
+  el:         '.sakana-box',     // 启动元素 node 或 选择器
+  scale:      1,                // 缩放倍数
+  canSwitchCharacter: false,      // 允许换角色
+});
+const html = document.querySelector('html')!
+html.addEventListener('click', () => {
+  if (audioRef.value) {
+    if (!play.value) {
+      audioRef.value.play()
+      play.value = true
+    }
+  }
+})
+})
+
+
 </script>
 
 <template>
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
+  <div class="snow-container">
+    <div class="snow foreground"></div>
+    <div class="snow foreground layered"></div>
+    <div class="snow middleground"></div>
+    <div class="snow middleground layered"></div>
+    <div class="snow background"></div>
+    <div class="snow background layered"></div>
   </div>
-  <HelloWorld msg="Vite + Vue" />
+  <div class="sakana-box">
+  </div>
+  <audio ref="audioRef" loop>
+    <source src="/music.mp3" type="audio/mpeg">
+  </audio>
 </template>
 
 <style scoped>
