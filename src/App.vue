@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
 import HelloWorld from './components/HelloWorld.vue'
-import Sakana from 'sakana'
+// import 'sakana'
+import './sakana.scss'
+import Sakana from './sakana.js'
 const play = ref(false)
 const audioRef = ref<HTMLAudioElement | null>(null)
 onMounted(() => {

@@ -1,3 +1,4 @@
+// @ts-nocheck
 /**
  * Sakana!
  * Date: 2022-08-28
@@ -7,7 +8,8 @@
 const Sakana = (_=>{
   /* css */
   
-  const { log } = console;
+  // const { log } = console;
+  const log = () => {};
   
   // 粘性
   const sticky = 0.1;
@@ -55,17 +57,17 @@ const Sakana = (_=>{
 
 
   const deepCopy = typeof window.structuredClone === 'function'
-      ? v => window.structuredClone(v)
-      : v => JSON.parse(JSON.stringify(v));
+      ? (v: any) => window.structuredClone(v)
+      : (v: any) => JSON.parse(JSON.stringify(v));
 
-  const loadImage = (src,onOver)=>{
+  const loadImage = (src: string,onOver: (arg0: HTMLImageElement) => any)=>{
       const el = new Image();
       el.onload = _=> onOver(el);
       el.src = src;
   };
 
   // 坐标旋转
-  const rotatePoint = (cx, cy, x, y, angle)=> {
+  const rotatePoint = (cx: number, cy: number, x: number, y: number, angle: number)=> {
       const radians = (Math.PI / 180) * angle;
       const cos = Math.cos(radians);
       const sin = Math.sin(radians);
@@ -511,5 +513,4 @@ const Sakana = (_=>{
 })();
 
 
-if (typeof module === 'object' && module.exports)
-module.exports = Sakana
+export default Sakana
