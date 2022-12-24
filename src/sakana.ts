@@ -455,47 +455,6 @@ const Sakana = (_=>{
       }
   };
 
-  const baseURL = 'https://lab.magiconch.com/sakana/';
-  const twitterURL = 'https://twitter.com/blue00f4/';
-  const githubRepositoryURL = 'https://github.com/itorr/sakana';
-  log(
-      `%c錦木千束 ${baseURL}?v=chisato`,
-      chisatoConsoleStyle,
-  );
-  log(
-      `%c井ノ上たきな ${baseURL}?v=takina`,
-      takinaConsoleStyle,
-  );
-  
-  log(
-      `%c永续超慢速%c${baseURL}?inertia=0.001&decay=1`,
-      chisatoConsoleStyle,
-      takinaConsoleStyle,
-  );
-  
-  log(
-      '绘: %c大伏アオ %c已取得在网页中使用的非商用授权',
-      'font-weight:bold',
-      'color:#C34',
-  
-      twitterURL+'status/1551887529615687680',
-      twitterURL+'status/1552066743853813760',
-  );
-  
-  log(
-      '微博',
-      'https://weibo.com/1197780522/M2xbREtGI',
-  );
-  log(
-      'Github',
-      githubRepositoryURL,
-  );
-  log(
-      '问题反馈',
-      `${githubRepositoryURL}/issues`,
-  );
-  
-
   return {
       init,
       Voices,
